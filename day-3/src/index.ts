@@ -1,4 +1,4 @@
-const readLine = require("readline");
+
 const fs = require("fs");
 interface IAlphaPriority {
   readonly char: string;
