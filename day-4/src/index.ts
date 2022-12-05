@@ -18,7 +18,7 @@ class ElfRanges {
     }
     this.numberRange = rangeArray;
   }
-  public checkOverLap(partner: ElfRanges): boolean {
+  public checkCompleteOverLap(partner: ElfRanges): boolean {
     if (
       (partner.numberRange[0] <= this.numberRange[0] &&
         partner.numberRange[partner.numberRange.length - 1] >=
@@ -56,7 +56,7 @@ function findRedundantAssignmentPairsP1(): number {
   });
   let overLapFinalCount = 0;
   pairNumberRanges.forEach((element: ElfRanges[]) => {
-    if (element[0].checkOverLap(element[1]))
+    if (element[0].checkCompleteOverLap(element[1]))
       overLapFinalCount = overLapFinalCount + 1;
   });
   return overLapFinalCount;
