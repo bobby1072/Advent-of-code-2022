@@ -1,4 +1,3 @@
-const readLine = require("readline");
 const fs = require("fs");
 class Elf {
   public calories?: number;

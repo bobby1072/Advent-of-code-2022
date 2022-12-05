@@ -1,4 +1,3 @@
-
 const fs = require("fs");
 interface IAlphaPriority {
   readonly char: string;

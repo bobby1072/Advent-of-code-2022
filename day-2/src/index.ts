@@ -1,5 +1,4 @@
 const fs = require("fs");
-const readLine = require("readline");
 interface IMove {
   name: string;
   points: number;
