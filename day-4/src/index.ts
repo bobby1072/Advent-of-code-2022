@@ -14,30 +14,24 @@ function findRedundantAssignmentPairsP1(): number {
         this.numberRange = [startEndArray[0]];
         return this;
       } else if (startEndArray.length === 2) {
-        for (let i = startEndArray[0]; i < startEndArray[1]; i++) {
+        for (let i = startEndArray[0]; i < startEndArray[1] + 1; i++) {
           rangeArray.push(i);
         }
       }
+
       this.numberRange = rangeArray;
     }
     public checkOverLap(partner: ElfRanges): boolean {
-      if (partner.numberRange.length >= this.numberRange.length) {
-        if (
-          partner.numberRange[0] <= this.numberRange[0] &&
+      if (
+        (partner.numberRange[0] <= this.numberRange[0] &&
           partner.numberRange[partner.numberRange.length - 1] >=
-            this.numberRange[this.numberRange.length - 1]
-        )
-          return true;
-        else return false;
-      } else {
-        if (
-          this.numberRange[0] <= partner.numberRange[0] &&
-          partner.numberRange[partner.numberRange.length - 1] <=
-            this.numberRange[this.numberRange.length - 1]
-        )
-          return true;
-        else return false;
-      }
+            this.numberRange[this.numberRange.length - 1]) ||
+        (this.numberRange[0] <= partner.numberRange[0] &&
+          this.numberRange[this.numberRange.length - 1] >=
+            partner.numberRange[partner.numberRange.length - 1])
+      )
+        return true;
+      return false;
     }
   }
   const pairNumberRanges: ElfRanges[][] = [];
